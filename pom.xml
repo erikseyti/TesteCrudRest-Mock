@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>be.com.teste</groupId>
+	<artifactId>TesteCrudRest</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>TesteCrudRest Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<!-- Aqui foi inserida uma dependência ao JUnit para testes de unidade 
+			no projeto. O Maven define a mesma automaticamente no ato da criação do projeto; -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.15.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Neste bloco consta a dependência ao servidor Jersey, framework responsável 
+			por tratar as requisições realizadas ao serviço. Seu código assume o papel 
+			de Servlet Container para receber e tratar todas as requisições realizadas 
+			via protocolo HTTP. Neste projeto iremos implementar as requisições HTTP 
+			com os verbos GET, POST, PUT e DELETE para as respectivas operações de um 
+			CRUD. Assim será possível inserir e realizar a manutenção dos dados no banco 
+			MySQL; -->
+		<dependency>
+			<groupId>org.glassfish.jersey.bundles</groupId>
+			<artifactId>jaxrs-ri</artifactId>
+			<version>2.17</version>
+		</dependency>
+
+		<!-- DEPENDÊNCIA PARA TRABALHAR COM O FORMATO JSON -->
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+			<version>2.15</version>
+		</dependency>
+
+		<!-- FIM DAS DEPENDÊNCIAS DO JSON -->
+
+		<!-- Neste bloco é definida a dependência para o suporte à troca de dados 
+			no formato JSON. Desta forma será possível enviar e receber dados no formato 
+			JSON entre as requisições e respostas do cliente ao servidor; -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<!-- Neste intervalo são informadas todas as dependências do Hibernate. 
+			O Hibernate é um framework que viabiliza o mapeamento objeto relacional entre 
+			as tabelas do banco de dados e as classes Java. Lembre-se que as classes 
+			Java representam as entidades do mundo real no sistema. É importante frisar 
+			ainda que embora tenhamos adotado o Hibernate, programaticamente iremos utilizar 
+			as interfaces da especificação JPA para acesso ao banco; -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.7.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.7.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.4.Final</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Final</version>
+
+		</dependency>
+		<!-- qui é definida a dependência da biblioteca do MySQL. O Hibernate fará 
+			uso desta para acessar o banco de dados. -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Unable to load 'javax.el.ExpressionFactory -->
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source> <!--Versão do Java -->
+					<target>1.7</target> <!--Versão do Java -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- <build> -->
+	<!-- <finalName>TesteCrudRest</finalName> -->
+	<!-- <plugins> -->
+	<!-- <plugin> -->
+	<!-- <groupId>org.apache.tomcat.maven</groupId> -->
+	<!-- <artifactId>tomcat7-maven-plugin</artifactId> -->
+	<!-- <version>2.0</version> -->
+	<!-- <configuration> -->
+	<!-- <path>/</path> -->
+	<!-- <port>8080</port> -->
+	<!-- </configuration> -->
+	<!-- </plugin> -->
+	<!-- </plugins> -->
+
+	<!-- </build> -->
+</project>
